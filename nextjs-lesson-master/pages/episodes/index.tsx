@@ -2,6 +2,7 @@ import {API} from "../../assets/api/api";
 import {CharacterType, EpisodeType, ResponseType} from "../../assets/api/rick-and-morty-api";
 import {PageWrapper} from "../../components/PageWrapper/PageWrapper";
 import {Header} from "../../components/Header/Header";
+import {Card} from "../../components/Card/Card";
 
 
 export const getServerSideProps = async ()=>{
@@ -26,7 +27,7 @@ type PropsType = {
 
 const Episodes = (props:PropsType) => {
   const {episodes} = props
-const episodesList = episodes.results.map(ch=><div key={ch.id}>{ch.name}</div>)
+const episodesList = episodes.results.map(ch=><Card key={ch.id} name={ch.name}/>)
 
 
   return (

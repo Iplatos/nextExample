@@ -4,7 +4,7 @@ import {PageWrapper} from "../../components/PageWrapper/PageWrapper";
 import {Header} from "../../components/Header/Header";
 import {dehydrate, useQuery} from "@tanstack/react-query";
 import {QueryClient} from "@tanstack/query-core";
-
+import {Card} from "../../components/Card/Card";
 
 
 const getLocations = ()=> {
@@ -12,6 +12,7 @@ const getLocations = ()=> {
     method: "GET"
   } ).then(res=>res.json())
 }
+
 export const getStaticProps = async ()=>{
   const queryClient = new QueryClient()
   await queryClient.fetchQuery(["locations"], getLocations)
@@ -27,10 +28,9 @@ const Locations = () => {
 
   if (!locations)
     return null
-  console.log(locations)
     const locationsList = locations.results.map(location=>
-      <div key={location.id}>{location.name}</div>
-    )
+      <Card key={location.id} name={location.name}/>)
+
 
 
 
