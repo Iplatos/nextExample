@@ -1,10 +1,9 @@
-import {API} from "../../assets/api/api";
-import {CharacterType, LocationType, ResponseType} from "../../assets/api/rick-and-morty-api";
+import {LocationType, ResponseType} from "../../assets/api/rick-and-morty-api";
 import {PageWrapper} from "../../components/PageWrapper/PageWrapper";
-import {Header} from "../../components/Header/Header";
 import {dehydrate, useQuery} from "@tanstack/react-query";
 import {QueryClient} from "@tanstack/query-core";
 import {Card} from "../../components/Card/Card";
+import {getLayout} from "../../components/Layout/BaseLayout/BaseLayout";
 
 
 const getLocations = ()=> {
@@ -37,10 +36,9 @@ const Locations = () => {
 
   return (
     <PageWrapper>
-      <Header/>
       {locationsList}
     </PageWrapper>
   );
 };
-
+Locations.getLayout = getLayout
 export default Locations;
