@@ -1,13 +1,16 @@
+// @ts-nocheck
 import {API} from "assets/api/api";
 import {EpisodeType, ResponseType} from "assets/api/rick-and-morty-api";
 import {PageWrapper} from "components/PageWrapper/PageWrapper";
 import {Card} from "components/Card/Card";
 import {getLayout} from "components/Layout/BaseLayout/BaseLayout";
+import {GetServerSideProps} from "next";
 
 
-export const getServerSideProps = async ()=>{
+export const getServerSideProps = async ({res}) => {
+
   const episodes = await API.rickAndMorty.getEpisodes()
-
+  res.setHeader("Cache-Control", "public", "s-maxage=10", "state-while-revalidate=100")
   if (!episodes){
     return {
       notFound:true

@@ -1,3 +1,4 @@
+
 import {API} from "../../assets/api/api";
 import {CharacterType, ResponseType} from "../../assets/api/rick-and-morty-api";
 import {PageWrapper} from "../../components/PageWrapper/PageWrapper";

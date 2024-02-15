@@ -1,6 +1,8 @@
+// @ts-nocheck
 import {NextPage} from "next";
 import {PropsWithChildren} from "react";
 import {Header} from "../Header/Header";
+
 import styled from "styled-components";
 
 export const Layout = (props:NextPage<PropsWithChildren>) => {

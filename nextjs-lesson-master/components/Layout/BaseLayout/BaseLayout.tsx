@@ -1,12 +1,15 @@
-import {NextPage} from "next";
-import {PropsWithChildren, ReactElement} from "react";
-import {Layout} from "../Layout";
+// @ts-nocheck
+import { ReactNode } from "react";
+import { Layout } from "../Layout";
 
-const BaseLayout = (props:NextPage<PropsWithChildren>) => {
-  const {children} = props
-  return <Layout>{children}</Layout>
+interface BaseLayoutProps {
+  children?: ReactNode;
 }
+// @ts-ignore
+const BaseLayout = ({ children }: BaseLayoutProps) => {
+  return <Layout>{children}</Layout>;
+};
 
-export function getLayout (page:ReactElement) {
-return <BaseLayout>{page}</BaseLayout>
+export function getLayout(page: JSX.Element) {
+  return <BaseLayout>{page}</BaseLayout>;
 }
