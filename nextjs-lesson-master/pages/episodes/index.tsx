@@ -10,13 +10,24 @@ import {GetServerSideProps} from "next";
 export const getServerSideProps = async ({res}) => {
 
   const episodes = await API.rickAndMorty.getEpisodes()
+/*
   res.setHeader("Cache-Control", "public", "s-maxage=10", "state-while-revalidate=100")
+*/
+
+  const isAuth = false
   if (!episodes){
     return {
       notFound:true
     }
   }
-
+if (!isAuth){
+  return {
+    redirect:{
+      destination:"/test",
+      permanent:false
+    }
+  }
+}
   return {
     props:{
       episodes
