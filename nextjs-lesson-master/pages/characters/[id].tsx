@@ -9,44 +9,44 @@ import styled from "styled-components";
 export const getStaticPaths = async () => {
   const {results} = await API.rickAndMorty.getCharacters()
 
-  const paths = results.map(character=>({
-    params: {id:String(character.id)}
+  const paths = results.map(character => ({
+    params: {id: String(character.id)}
   }))
-return {
+  return {
     paths,
-  fallback:"blocking"
-}
+    fallback: "blocking"
+  }
 }
 
- export const getStaticProps: GetStaticProps = async ({params})=>{
-    const {id} = params || {}
-    const character = await API.rickAndMorty.getCharacter(id as string)
-    if(!character){
-      return {
-        notFound:true
-      }
+export const getStaticProps: GetStaticProps = async ({params}) => {
+  const {id} = params || {}
+  const character = await API.rickAndMorty.getCharacter(id as string)
+  if (!character) {
+    return {
+      notFound: true
     }
+  }
   return {
-      props: {
-        character
-      }
+    props: {
+      character
+    }
   }
 }
 
 type PropsType = {
-    character:CharacterType
+  character: CharacterType
 }
 
-const Character = (props:PropsType) => {
-const {character} = props
+const Character = (props: PropsType) => {
+  const {character} = props
 
   const router = useRouter()
   if (router.isFallback) return <h1>loading</h1>
   return (
     <div>
-      <Button onClick={()=>router.push("/characters")}>go to characters</Button>
+      <Button onClick={() => router.push("/characters")}>go to characters</Button>
       <IdText>id:{router.query.id}</IdText>
-      <CharacterCard  character={character}/>
+      <CharacterCard character={character}/>
     </div>
 
   )
@@ -55,8 +55,8 @@ Character.getLayout = getLayout
 export default Character
 
 const IdText = styled.div`
-font-size:38px
+  font-size: 38px
 `
 const Button = styled.button`
-background-color: #fa52d3;
+  background-color: #fa52d3;
 `

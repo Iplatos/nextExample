@@ -23,7 +23,7 @@ const Container = styled.div`
 `
 
 const Main = styled.div`
-width: 100%;
+  width: 100%;
   padding-bottom: 10px;
   overflow: hidden;
 `
