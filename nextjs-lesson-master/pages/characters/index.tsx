@@ -5,6 +5,7 @@ import {PageWrapper} from "components/PageWrapper/PageWrapper";
 import Image from "next/image";
 import {Header} from "components/Header/Header";
 import {CharacterCard} from "components/Card/CharacterCard/CharacterCard";
+import {getLayout} from "components/Layout/BaseLayout/BaseLayout";
 
 
 export const getStaticProps = async () => {
@@ -19,10 +20,10 @@ const Characters = (props: PropsType) => {
   const {characters} = props
   return (
     <PageWrapper>
-      <Header/>
       <>{characters.results.map(character=><CharacterCard key={character.key} character={character}  />)}</>
     </PageWrapper>
 
   )
 }
+Characters.getLayout = getLayout
 export default Characters

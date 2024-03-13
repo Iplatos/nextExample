@@ -5,6 +5,7 @@ import {Header} from "../../components/Header/Header";
 import {dehydrate, useQuery} from "@tanstack/react-query";
 import {QueryClient} from "@tanstack/query-core";
 import {Card} from "components/Card/Card";
+import {getLayout, getSimpleLayout} from "components/Layout/BaseLayout/BaseLayout";
 
 
 const getLocations = () => {
@@ -36,9 +37,10 @@ const Locations = () => {
 
   return (
     <PageWrapper>
-      <Header/>
+
       {locationsList}
     </PageWrapper>
   );
 }
+Locations.getLayout = getSimpleLayout
 export default Locations;
