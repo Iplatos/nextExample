@@ -5,7 +5,7 @@ import {HeadMeta} from '../HeadMeta/HeadMeta';
 type PropsType = {
   title?: string;
 };
-
+///
 export const PageWrapper = (props: PropsWithChildren<PropsType>) => {
   const { children, title } = props;
 
