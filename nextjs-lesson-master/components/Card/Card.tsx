@@ -10,7 +10,9 @@ export const Card = (props: PropsWithChildren<PropsType>) => {
 
   return (
     <CardBlock>
-      <Name>{name}</Name>
+      <Name>
+        {name}
+      </Name>
       {children}
     </CardBlock>
   );

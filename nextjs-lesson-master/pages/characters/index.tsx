@@ -20,7 +20,7 @@ const Characters = (props: PropsType) => {
   const {characters} = props
   return (
     <PageWrapper>
-      <>{characters.results.map(character=><CharacterCard key={character.key} character={character}  />)}</>
+      <>{characters.results.map(character=><CharacterCard key={character.id} character={character}  />)}</>
     </PageWrapper>
 
   )

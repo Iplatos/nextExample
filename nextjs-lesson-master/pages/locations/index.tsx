@@ -37,7 +37,7 @@ const Locations = () => {
 
   return (
     <PageWrapper>
-
+<Header/>
       {locationsList}
     </PageWrapper>
   );
