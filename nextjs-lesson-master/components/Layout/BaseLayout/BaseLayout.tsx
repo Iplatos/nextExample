@@ -1,7 +1,5 @@
 import {PropsWithChildren, ReactElement} from "react";
-import {NextPage} from "next";
 import {Layout} from "components/Layout/Layout";
-import {Header} from "components/Header/Header";
 
 export const BaseLayout  = (props:PropsWithChildren) => {
   const {children} = props
