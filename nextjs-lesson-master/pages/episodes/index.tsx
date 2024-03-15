@@ -1,12 +1,11 @@
-import {CharacterType, RickAndMortyApi, ResponseType, EpisodeType} from "assets/api/rick-and-morty-api";
+import {EpisodeType, ResponseType} from "assets/api/rick-and-morty-api";
 import {API} from "assets/api/api";
 import {PageWrapper} from "components/PageWrapper/PageWrapper";
-
-import Image from "next/image";
 import {Header} from "components/Header/Header";
 
 
-export const getServerSideProps = async () => {
+export const getServerSideProps = async ({res}:any) => {
+  res.setHeader("Cache-Control"," s-maxage=10, stale-while-revalidate=5")
   const episodes = await API.rickAndMorty.getEpisodes()
   if (!episodes){
     return {

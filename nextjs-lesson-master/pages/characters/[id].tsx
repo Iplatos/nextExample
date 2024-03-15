@@ -5,7 +5,7 @@ import {CharacterCard} from "components/Card/CharacterCard/CharacterCard";
 import {GetStaticProps} from "next";
 import {useRouter} from "next/router";
 import {API} from "assets/api/api";
-
+// @ts-nocheck
 
 export const getStaticPaths = async () => {
   const {results} = await API.rickAndMorty.getCharacters()
@@ -19,7 +19,7 @@ export const getStaticPaths = async () => {
 }
 
 
-export const getStaticProps = async ({params}) => {
+export const getStaticProps = async ({params}:any) => {
   const {id} = params || {}
   const character = await API.rickAndMorty.getCharacter(id as string)
   if (!character){
@@ -32,7 +32,7 @@ export const getStaticProps = async ({params}) => {
 }
 
 type PropsType = {
-  character:ResponseType<CharacterType>
+  character:any
 }
 
 const Character = (props:PropsType) => {
@@ -42,7 +42,6 @@ const Character = (props:PropsType) => {
 
   return (<>
     <div>{router.query.id}</div>
-    <div>{character.id}</div>
     <CharacterCard character={character}  />
     <button onClick={()=>router.push("/")}>back</button>
     </>
@@ -52,3 +51,4 @@ const Character = (props:PropsType) => {
 }
 Character.getLayout = getLayout
 export default Character
+  //@ts-ignore
