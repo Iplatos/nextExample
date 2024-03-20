@@ -12,7 +12,18 @@ export const getServerSideProps = async ({res}:any) => {
       notFound: true
     }
   }
+let isAuth = true
+  if (!isAuth){
+    return {
+      redirect:
+        {destination: "/",
+        permanent:true
+        },
+    }
+  }
+
   return { props: { episodes } }
+
 }
 type PropsType = {
   episodes: ResponseType<EpisodeType>
