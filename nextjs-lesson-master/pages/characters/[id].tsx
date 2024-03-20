@@ -7,6 +7,8 @@ import {useRouter} from "next/router";
 import {API} from "assets/api/api";
 // @ts-nocheck
 
+
+
 export const getStaticPaths = async () => {
   const {results} = await API.rickAndMorty.getCharacters()
   const paths = results.map(character => ({params: {id: String(character.id)}

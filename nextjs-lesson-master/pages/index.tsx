@@ -2,12 +2,13 @@ import Image from 'next/image';
 import {NextPageWithLayout} from './_app';
 import {PageWrapper} from '../components/PageWrapper/PageWrapper';
 import {getLayout} from "components/Layout/BaseLayout/BaseLayout";
+import {LoginNavigate} from "hoc/LoginNavigate";
 
 
 const Home: NextPageWithLayout = () => {
   return (
     <PageWrapper>
-      <Image
+        <Image
         src="/next.svg"
         alt="Next.js Logo"
         width={180}

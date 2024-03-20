@@ -1,6 +1,7 @@
 import {getLayout} from "components/Layout/BaseLayout/BaseLayout";
 import * as path from "path"
 import fs from "fs/promises";
+import {LoginNavigate} from "hoc/LoginNavigate";
 
 
 export const getStaticProps = async ()=>{
@@ -25,7 +26,7 @@ const {title} = await getParsedData()
 const Test = (props:{title:string}) => {
   const {title} = props
   return (
-    <div style={{backgroundColor:"red"}}>{title}</div>
+      <div style={{backgroundColor: "red"}}>{title}</div>
   )
 }
 Test.getLayout = getLayout

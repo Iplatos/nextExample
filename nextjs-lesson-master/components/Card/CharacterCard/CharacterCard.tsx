@@ -29,8 +29,8 @@ export const CharacterCard = (props: PropsType) => {
       </Link>
     </Card>
   );
+ /* export default CharacterCard*/
 };
-
 const ImageBlock = styled(Image)`
   object-fit: cover;
 `;
