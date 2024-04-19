@@ -21,7 +21,7 @@ export const getStaticProps = async () => {
 type PropsType = {
   characters: ResponseType<CharacterType>
 }
-
+//test
 const Characters = (props: PropsType) => {
   const {characters} = props
   return (
